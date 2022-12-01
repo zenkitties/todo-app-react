@@ -1,8 +1,10 @@
 body {
   margin: 0;
+  height: 100vh;
+  width: 100vw;
   font-family: "Montserrat", "Quicksand", "sans-serif";
-  color: white;
-  background-color: #0e2938;
+  color: #fff;
+  background-color: #07161f;
   background-image: url("https://www.transparenttextures.com/patterns/xv.png");
 }
 body div .todo-header {
@@ -32,6 +34,35 @@ body div .todo-header .heading-text {
 body div .todo-header .heading-text .icon {
   display: flex;
   margin-right: 12px;
+}
+body div .add-todo-container {
+  height: 200px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+body div .add-todo-container input::placeholder, body div .add-todo-container .add-todo-input {
+  color: #fff;
+  padding-left: 10px;
+  font: 20px "Montserrat", "Quicksand", "sans-serif";
+  outline: none;
+}
+body div .add-todo-container input:focus {
+  transition-duration: 250ms;
+  border-bottom: 2px solid #030a0e;
+}
+body div .add-todo-container .add-todo-input {
+  display: flex;
+  align-self: center;
+  background-color: #12374C;
+  opacity: 60%;
+  height: 35px;
+  width: 300px;
+  border: 2px solid #0d2837;
+}
+body div .add-todo-container .add-todo-button {
+  align-self: center;
+  margin-left: -10px;
 }
 body .footer {
   width: 100vw;

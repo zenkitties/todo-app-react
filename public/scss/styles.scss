@@ -1,14 +1,18 @@
+@import 'variables.scss';
+
 body {
     margin: 0;
-    font-family: 'Montserrat', 'Quicksand', 'sans-serif';
-    color: white;
-    background-color: #0e2938;
+    height: 100vh;
+    width: 100vw;
+    font-family: $primary-font;
+    color: $white;
+    background-color: darken($primary-color, 11%);
     background-image: url("https://www.transparenttextures.com/patterns/xv.png");
 
     
     div .todo-header {
         display: flex;
-        background-color: #12374C;
+        background-color: $primary-color;
         height: 70px;
         width: 100vw;
         box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
@@ -16,7 +20,7 @@ body {
         -moz-box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
 
         .login-register, .heading-text {
-            color: #fff;
+            color: $white;
             flex-basis: 50%;
         }
 
@@ -36,6 +40,40 @@ body {
                 display: flex;
                 margin-right: 12px;
             }
+        }
+    }
+
+    div .add-todo-container {
+        height: 200px;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+
+        input::placeholder, .add-todo-input {
+            color: $white;
+            padding-left: 10px;
+            font: 20px $primary-font;
+            outline: none;
+        }
+
+        input:focus {
+            transition-duration: 250ms;
+            border-bottom: 2px solid darken($primary-color, 15%);
+        }
+
+       .add-todo-input {
+            display: flex;
+            align-self: center;
+            background-color: $primary-color;
+            opacity: 60%;
+            height: 35px;
+            width: 300px;
+            border: 2px solid darken($primary-color, 5%);
+        }
+
+        .add-todo-button {
+            align-self: center;
+            margin-left: -10px;
         }
     }
 
