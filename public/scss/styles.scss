@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', 'Quicksand', 'sans-serif';
+    color: white;
+    background-color: #0e2938;
+    background-image: url("https://www.transparenttextures.com/patterns/xv.png");
+
+    
+    div .todo-header {
+        display: flex;
+        background-color: #12374C;
+        height: 70px;
+        width: 100vw;
+        box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
+        -webkit-box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
+        -moz-box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
+
+        .login-register, .heading-text {
+            color: #fff;
+            flex-basis: 50%;
+        }
+
+        .login-register {
+            text-align: right; 
+            padding-top: 5px;
+            padding-right: 20px;
+            cursor: pointer;
+        }
+
+        .heading-text {
+            display: flex;
+            padding-left: 20px;
+            font-weight: 600;
+
+            .icon {
+                display: flex;
+                margin-right: 12px;
+            }
+        }
+    }
+
+    .footer{
+        width: 100vw;
+        height: 50px;
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+    }
+    
+    code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+          monospace;
+      }
+
+}
+  
+  
