@@ -59,13 +59,15 @@ body {
         input:focus {
             transition-duration: 250ms;
             border-bottom: 2px solid darken($primary-color, 15%);
+            //border-bottom: 2px solid $white;
+
         }
 
        .add-todo-input {
             display: flex;
             align-self: center;
             background-color: $primary-color;
-            opacity: 60%;
+            //opacity: 60%;
             height: 35px;
             width: 300px;
             border: 2px solid darken($primary-color, 5%);
@@ -74,6 +76,24 @@ body {
         .add-todo-button {
             align-self: center;
             margin-left: -10px;
+        }
+    }
+
+    div .todo-list-container {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        min-height: 600px;
+
+        ul {
+            list-style: none;
+
+            li {
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 1.6em;
+                margin-bottom: 25px;
+            }
         }
     }
 

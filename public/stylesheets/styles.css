@@ -9,7 +9,7 @@ body {
 }
 body div .todo-header {
   display: flex;
-  background-color: #12374C;
+  background-color: rgb(18, 55, 76);
   height: 70px;
   width: 100vw;
   box-shadow: -2px 8px 16px 7px rgba(0, 0, 0, 0.44);
@@ -54,8 +54,7 @@ body div .add-todo-container input:focus {
 body div .add-todo-container .add-todo-input {
   display: flex;
   align-self: center;
-  background-color: #12374C;
-  opacity: 60%;
+  background-color: rgb(18, 55, 76);
   height: 35px;
   width: 300px;
   border: 2px solid #0d2837;
@@ -63,6 +62,21 @@ body div .add-todo-container .add-todo-input {
 body div .add-todo-container .add-todo-button {
   align-self: center;
   margin-left: -10px;
+}
+body div .todo-list-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  min-height: 600px;
+}
+body div .todo-list-container ul {
+  list-style: none;
+}
+body div .todo-list-container ul li {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.6em;
+  margin-bottom: 25px;
 }
 body .footer {
   width: 100vw;
