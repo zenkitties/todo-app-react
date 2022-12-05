@@ -49,12 +49,14 @@ body div .add-todo-container input::placeholder, body div .add-todo-container .a
 }
 body div .add-todo-container input:focus {
   transition-duration: 250ms;
+  opacity: 55%;
   border-bottom: 2px solid #030a0e;
 }
 body div .add-todo-container .add-todo-input {
   display: flex;
   align-self: center;
   background-color: rgb(18, 55, 76);
+  opacity: 45%;
   height: 35px;
   width: 300px;
   border: 2px solid #0d2837;
@@ -72,11 +74,29 @@ body div .todo-list-container {
 body div .todo-list-container ul {
   list-style: none;
 }
-body div .todo-list-container ul li {
+body div .todo-list-container ul .todo-item-container {
+  display: flex;
+  width: 40vw;
+}
+body div .todo-list-container ul .todo-item-container li {
+  flex-basis: 70%;
   cursor: pointer;
   font-weight: 600;
   font-size: 1.6em;
   margin-bottom: 25px;
+}
+body div .todo-list-container ul .todo-item-container .todo-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-basis: 30%;
+}
+body div .todo-list-container ul .todo-item-container .todo-actions .action-button {
+  padding-right: 15px;
+}
+body div .todo-list-container ul .todo-item-container .todo-actions .action-button > :hover {
+  color: #26739e;
+  cursor: pointer;
+  transition-duration: 250ms;
 }
 body .footer {
   width: 100vw;

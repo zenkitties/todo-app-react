@@ -3,10 +3,9 @@ import Header from './Header'
 import Footer from './Footer'
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
-import uuid from 'react-uuid';
 
 function App() {
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useState(['Making Bacon Pancakes','Putting up jolly X-Mas Lights','Become the Matrix'])
     const [todoInput, setTodoInput] = useState('')
 
     const addTodo =(e) => {
@@ -21,7 +20,7 @@ function App() {
     <div className="App">
         <Header />
         <AddTodo setTodoInput={setTodoInput} addTodo={addTodo} name='add-todo' value={todoInput}/>
-        <TodoList todos={todos}/>
+        <TodoList todos={todos} setTodos={setTodos}/>
         <Footer />
     </div>
   );

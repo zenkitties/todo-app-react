@@ -2,20 +2,26 @@ import React from 'react';
 import Todo from './Todo'
 import uuid from 'react-uuid';
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos, setTodos}) => {
 
-    const getTodos = (todo) => {
+    const deleteTodo = (id) => {
+        setTodos(prevTodos => {
+            console.log(prevTodos)
+            return prevTodos.filter((item, index) => {
+                return index !== id;
+            })
+        })
+    }
+
+    const getTodos = (todo,  index) => {
         return (
-            <Todo key={uuid()} name={todo} />
+            <Todo key={uuid()} id={index} name={todo}  deleteTodo={deleteTodo}/>
         )
     }
 
     return (
         <div className="todo-list-container">
             <ul className="todo-ul">
-                <Todo name="Making Bacon Pancakes" />
-                <Todo name="Putting up Jolly X-Mas Lights" />
-                <Todo name="Becoming the Matrix" />
                 {todos.map(getTodos)}
             </ul>
         </div>
