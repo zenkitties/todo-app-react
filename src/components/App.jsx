@@ -5,13 +5,13 @@ import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 
 function App() {
-    const [todos, setTodos] = useState(['Making Bacon Pancakes','Putting up jolly X-Mas Lights','Become the Matrix'])
+    const [todos, setTodos] = useState([{name:'Making Bacon Pancakes'},{name:'Putting up jolly X-Mas Lights'},{name:'Know Kung Fu'},{name:'Karate Chop'}])
     const [todoInput, setTodoInput] = useState('')
 
     const addTodo =(e) => {
         e.preventDefault();
         setTodos(prevValue => {
-            return [...prevValue, todoInput];
+            return [...prevValue, {name: todoInput}]
         })
         setTodoInput("")
     }

@@ -6,16 +6,16 @@ import theme from './Theme'
 
 
 
-const AddTodo = ({ setTodoInput, addTodo, ...props}) => {
+const AddTodo = ({ setTodoInput, addTodo, handleKeyPress, ...props}) => {
 
-    const handleChange = e => {
-        const input = e.target.value;
-        setTodoInput(input);
+    const handleChange =event=> {
+      const input = event.target.value
+        setTodoInput(input)
     }
     
     return (
         <div className="add-todo-container">
-            <input className="add-todo-input" placeholder="Enter a todo..." onChange={handleChange} name={props.name} value={props.value}/>
+            <input className="add-todo-input" placeholder="Enter a todo..." onChange={handleChange} onKeyPress={handleKeyPress} name={props.name} value={props.value}/>
             <ThemeProvider theme={theme}>
                 <Fab size="medium" color="primary" className="add-todo-button" onClick={addTodo}><AddIcon /></Fab>
             </ThemeProvider>

@@ -87,17 +87,10 @@ body {
         ul {
             list-style: none;
 
-            .todo-item-container {
-                display: flex;
-                width: 40vw;
-
-                li {
-                    flex-basis: 70%;
-                    cursor: pointer;
-                    font-weight: 600;
-                    font-size: 1.6em;
-                    margin-bottom: 25px;
-                }
+            .todo-item-container, .edit-container {
+                display:  flex;
+                font-weight: 600;
+                font-size: 1.6em;
 
                 .todo-actions {
                     display: flex;
@@ -114,9 +107,49 @@ body {
                         }
                     }
                 }
+                
+                .todo-container{
+                display: flex;
+                width: 40vw;
+
+                li {
+                    flex-basis: 70%;
+                    cursor: pointer;
+                    margin-bottom: 25px;
+                }
+
+                
+            }
 
             }
         }
+    }
+
+    div .edit-container {
+        display: flex;
+        width: 40vw;
+
+        input {
+            height: 35px;
+            width: 300px;
+            background-color: $primary-color;
+            color: $white;
+            font: 20px $primary-font;
+            flex-basis: 70%;
+            margin-bottom: 25px;
+            border: 2px solid darken($primary-color, 5%);
+            opacity: 45%;
+            outline: none;
+        }
+
+        input:focus {
+            transition-duration: 250ms;
+            opacity: 55%;
+            border-bottom: 2px solid darken($primary-color, 15%);
+        }
+
+        
+        
     }
 
     .footer{

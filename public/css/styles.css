@@ -74,29 +74,29 @@ body div .todo-list-container {
 body div .todo-list-container ul {
   list-style: none;
 }
-body div .todo-list-container ul .todo-item-container, body div .todo-list-container ul .edit-container {
+body div .todo-list-container ul .todo-item-container {
   display: flex;
   font-weight: 600;
   font-size: 1.6em;
 }
-body div .todo-list-container ul .todo-item-container .todo-actions, body div .todo-list-container ul .edit-container .todo-actions {
+body div .todo-list-container ul .todo-item-container .todo-actions {
   display: flex;
   justify-content: flex-end;
   flex-basis: 30%;
 }
-body div .todo-list-container ul .todo-item-container .todo-actions .action-button, body div .todo-list-container ul .edit-container .todo-actions .action-button {
+body div .todo-list-container ul .todo-item-container .todo-actions .action-button {
   padding-right: 15px;
 }
-body div .todo-list-container ul .todo-item-container .todo-actions .action-button > :hover, body div .todo-list-container ul .edit-container .todo-actions .action-button > :hover {
+body div .todo-list-container ul .todo-item-container .todo-actions .action-button > :hover {
   color: #26739e;
   cursor: pointer;
   transition-duration: 250ms;
 }
-body div .todo-list-container ul .todo-item-container .todo-container, body div .todo-list-container ul .edit-container .todo-container {
+body div .todo-list-container ul .todo-item-container .todo-container {
   display: flex;
   width: 40vw;
 }
-body div .todo-list-container ul .todo-item-container .todo-container li, body div .todo-list-container ul .edit-container .todo-container li {
+body div .todo-list-container ul .todo-item-container .todo-container li {
   flex-basis: 70%;
   cursor: pointer;
   margin-bottom: 25px;
@@ -105,22 +105,10 @@ body div .edit-container {
   display: flex;
   width: 40vw;
 }
-body div .edit-container input {
-  height: 35px;
-  width: 300px;
-  background-color: rgb(18, 55, 76);
-  color: #fff;
-  font: 20px "Montserrat", "Quicksand", "sans-serif";
+body div .edit-container li {
   flex-basis: 70%;
+  cursor: text !important;
   margin-bottom: 25px;
-  border: 2px solid #0d2837;
-  opacity: 45%;
-  outline: none;
-}
-body div .edit-container input:focus {
-  transition-duration: 250ms;
-  opacity: 55%;
-  border-bottom: 2px solid #030a0e;
 }
 body .footer {
   width: 100vw;
