@@ -10,7 +10,7 @@ body {
     background-image: url("https://www.transparenttextures.com/patterns/xv.png");
 
    
-    div .login {
+    div .sign-in {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -50,7 +50,7 @@ body {
             }
         }
 
-        .login-input {
+        .sign-in-input {
             display: flex;
             height: 40px;
             width: 300px;
@@ -91,16 +91,16 @@ body {
         -webkit-box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
         -moz-box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
 
-        .login-options, .heading-text {
+        .sign-in-options, .heading-text {
             flex-basis: 50%;
         }
 
-        .login-options {
+        .sign-in-options {
             text-align: right; 
             padding-top: 5px;
             padding-right: 20px;
 
-            .login-link, .register-link {
+            .sign-in-link, .register-link {
                
                 &:hover {
                     cursor: pointer;

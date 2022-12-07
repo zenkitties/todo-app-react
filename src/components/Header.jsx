@@ -15,8 +15,8 @@ const Header = ({setIsRegistered, setLogin}) => {
     return (
         <div className="todo-header">
             <h2 className="heading-text"><ListAltIcon fontSize="large" className="icon"/> Todo App</h2>
-            <div className="login-options">
-                <span className="login-link" onClick={handleLoginLink}>Login</span>
+            <div className="sign-in-options">
+                <span className="sign-in-link" onClick={handleLoginLink}>Sign In</span>
                 <span>&nbsp; / &nbsp;</span>
                 <span className="register-link" onClick={handleRegisterLink}> Register</span>
             </div>

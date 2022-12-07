@@ -7,39 +7,39 @@ body {
   background-color: #07161f;
   background-image: url("https://www.transparenttextures.com/patterns/xv.png");
 }
-body div .login {
+body div .sign-in {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
   margin-top: 125px;
 }
-body div .login h1 {
+body div .sign-in h1 {
   margin-bottom: 0;
 }
-body div .login h2, body div .login h4 {
+body div .sign-in h2, body div .sign-in h4 {
   margin-top: 0;
 }
-body div .login .disable-select {
+body div .sign-in .disable-select {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
 }
-body div .login input:hover {
+body div .sign-in input:hover {
   cursor: text;
 }
-body div .login input:focus {
+body div .sign-in input:focus {
   transition-duration: 250ms;
   background-color: rgba(18, 55, 76, 0.7);
   border-bottom: 2px solid #030a0e;
 }
-body div .login input::placeholder {
+body div .sign-in input::placeholder {
   color: #fff;
   opacity: 80%;
 }
-body div .login .login-input {
+body div .sign-in .sign-in-input {
   display: flex;
   height: 40px;
   width: 300px;
@@ -51,7 +51,7 @@ body div .login .login-input {
   background-color: rgba(18, 55, 76, 0.5);
   outline: none;
 }
-body div .login button {
+body div .sign-in button {
   margin-bottom: 10px;
   color: #fff;
   font: 20px "Montserrat", "Quicksand", "sans-serif";
@@ -60,7 +60,7 @@ body div .login button {
   width: 310px;
   background-color: rgb(18, 55, 76);
 }
-body div .login button:hover {
+body div .sign-in button:hover {
   cursor: pointer;
   transition-duration: 250ms;
   background-color: #0b222f;
@@ -76,19 +76,19 @@ body div .todo-header {
   -webkit-box-shadow: -2px 8px 16px 7px rgba(0, 0, 0, 0.44);
   -moz-box-shadow: -2px 8px 16px 7px rgba(0, 0, 0, 0.44);
 }
-body div .todo-header .login-options, body div .todo-header .heading-text {
+body div .todo-header .sign-in-options, body div .todo-header .heading-text {
   flex-basis: 50%;
 }
-body div .todo-header .login-options {
+body div .todo-header .sign-in-options {
   text-align: right;
   padding-top: 5px;
   padding-right: 20px;
 }
-body div .todo-header .login-options .login-link:hover, body div .todo-header .login-options .register-link:hover {
+body div .todo-header .sign-in-options .sign-in-link:hover, body div .todo-header .sign-in-options .register-link:hover {
   cursor: pointer;
   color: #a6d1ea;
 }
-body div .todo-header .login-options .login-link:active, body div .todo-header .login-options .register-link:active {
+body div .todo-header .sign-in-options .sign-in-link:active, body div .todo-header .sign-in-options .register-link:active {
   color: #fff;
 }
 body div .todo-header .heading-text {

@@ -3,7 +3,7 @@ import Header from './Header'
 import Footer from './Footer'
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
-import Login from './Login'
+import SignIn from './SignIn'
 
 function App() {
     const [todos, setTodos] = useState([{name:'Making Bacon Pancakes'},{name:'Putting up jolly X-Mas Lights'},{name:'Know Kung Fu'},{name:'Karate Chop'}])
@@ -28,7 +28,7 @@ function App() {
             <TodoList todos={todos} setTodos={setTodos}/> 
         </div>
         :
-        <Login isRegistered={isRegistered} />
+        <SignIn isRegistered={isRegistered} />
         }
         <Footer />
     </div>
