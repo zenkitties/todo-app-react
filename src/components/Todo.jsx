@@ -27,22 +27,6 @@ const Todo = ({deleteTodo, todos, setTodos, saveTodo, ...props}) => {
         setInEdit(false);
     }
 
-    // const saveTodo = (props) => {
-    //     const prevTodos = todos;       
-    //     const {name, id} = props
-
-    //     prevTodos.filter((todo, index) =>{
-    //         if (index === id) {
-    //             todo.name = editInput
-    //             return todo.name
-    //         }
-    //         return prevTodos
-    //     });
-
-    //     setTodos(prevTodos);
-    //     setInEdit(false);
-    // }
-
     return (
         <div className='todo-item-container' >
             {!inEdit &&

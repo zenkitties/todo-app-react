@@ -9,26 +9,108 @@ body {
     background-color: darken($primary-color, 11%);
     background-image: url("https://www.transparenttextures.com/patterns/xv.png");
 
-    
+   
+    div .login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw; 
+        margin-top: 125px;
+
+        h1 {
+            margin-bottom: 0;
+        }
+
+        h2, h4 {
+            margin-top: 0;
+        }
+
+        .disable-select {
+            -webkit-user-select: none;  
+            -moz-user-select: none;    
+            -ms-user-select: none;      
+            user-select: none;
+            pointer-events: none;
+          }
+
+        input {
+            &:hover {
+                cursor: text;
+            }
+
+            &:focus {
+                transition-duration: $transition;
+                background-color: $secondary-opaque;
+                border-bottom: 2px solid darken($primary-color, 15%);
+            }
+
+            &::placeholder {
+                color: $white;
+                opacity: 80%;
+            }
+        }
+
+        .login-input {
+            display: flex;
+            height: 40px;
+            width: 300px;
+            color: $white;
+            font: 20px $primary-font;
+            margin-bottom: 25px;
+            text-align: center;
+            border: 2px solid darken($primary-color, 5%);
+            background-color: $primary-opaque;
+            outline: none;
+        }
+
+        button {
+            margin-bottom: 10px;
+            color: $white;
+            font: 20px $primary-font;
+            border: 2px solid darken($primary-color, 3%);
+            height: 45px;
+            width: 310px;
+            background-color: $primary-color;
+
+            &:hover {
+                cursor: pointer;
+                transition-duration: $transition;
+                background-color: darken($primary-color, 7%);
+                border: 2px solid darken($primary-color, 7%);
+            }
+        }
+    }
+
     div .todo-header {
         display: flex;
         background-color: $primary-color;
+        color: $white;
         height: 70px;
         width: 100vw;
         box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
         -webkit-box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
         -moz-box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
 
-        .login-register, .heading-text {
-            color: $white;
+        .login-options, .heading-text {
             flex-basis: 50%;
         }
 
-        .login-register {
+        .login-options {
             text-align: right; 
             padding-top: 5px;
             padding-right: 20px;
-            cursor: pointer;
+
+            .login-link, .register-link {
+               
+                &:hover {
+                    cursor: pointer;
+                    color: lighten($primary-color, 60%);
+                }
+
+                &:active {
+                    color: $white;
+                }
+            }
         }
 
         .heading-text {

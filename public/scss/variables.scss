@@ -1,3 +1,7 @@
 $primary-color: rgba(18, 55, 76, 1);
+$opaque: .50;
+$primary-opaque: rgba(18, 55, 76, $opaque);
+$secondary-opaque: rgba(18, 55, 76, .70);
 $white: #fff;
+$transition: 250ms;
 $primary-font: 'Montserrat', 'Quicksand', 'sans-serif';
