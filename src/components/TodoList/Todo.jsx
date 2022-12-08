@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import EditTodo from './EditTodo';
+import EditTodo from '../EditTodo/EditTodo';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 

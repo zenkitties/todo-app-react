@@ -20,13 +20,6 @@ body div .sign-in h1 {
 body div .sign-in h2, body div .sign-in h4 {
   margin-top: 0;
 }
-body div .sign-in .disable-select {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  pointer-events: none;
-}
 body div .sign-in input:hover {
   cursor: text;
 }
@@ -84,11 +77,11 @@ body div .todo-header .sign-in-options {
   padding-top: 5px;
   padding-right: 20px;
 }
-body div .todo-header .sign-in-options .sign-in-link:hover, body div .todo-header .sign-in-options .register-link:hover {
+body div .todo-header .sign-in-options .sign-in-link:hover, body div .todo-header .sign-in-options .sign-up-link:hover {
   cursor: pointer;
   color: #a6d1ea;
 }
-body div .todo-header .sign-in-options .sign-in-link:active, body div .todo-header .sign-in-options .register-link:active {
+body div .todo-header .sign-in-options .sign-in-link:active, body div .todo-header .sign-in-options .sign-up-link:active {
   color: #fff;
 }
 body div .todo-header .heading-text {
