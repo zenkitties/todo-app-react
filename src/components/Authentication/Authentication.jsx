@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {
     signInWithGooglePopup,
     createUserDocumentFromAuth, 
@@ -8,6 +8,8 @@ import {
 
 import AuthenticationInput from './AuthenticationInput';
 import Button from '../Button/Button'
+
+import { UserContext } from '../../contexts/User'
 
 const defaultFormFields = {
     displayName: '',
@@ -21,13 +23,18 @@ const Authentication = ({signedUp, setSignedIn}) => {
 
     const {displayName, email, password, confirmPassword } = formFields;
 
+    const { setCurrentUser } = useContext(UserContext); 
+
     const resetFormFields =() => {
         setFormFields(defaultFormFields);
     }
 
-    const logGoogleUser = async () => {
+    const signInWithGoogle = async () => {
         const  { user } = await signInWithGooglePopup();
         const userDocRef = await createUserDocumentFromAuth(user);
+        setCurrentUser(user);
+        setSignedIn(true);
+        resetFormFields();
     }
 
     const handleChange = (e) => {
@@ -46,8 +53,8 @@ const Authentication = ({signedUp, setSignedIn}) => {
 
        if(signedUp) {
             try {
-                const response = await signInAuthUserWithEmailAndPassword(email, password);
-                console.log(response);
+                const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+                setCurrentUser(user)
                 setSignedIn(true);
                 resetFormFields();
             } catch(error) {
@@ -69,6 +76,8 @@ const Authentication = ({signedUp, setSignedIn}) => {
                     const {user} = await createAuthUserWithEmailAndPassword(email, password);
                     
                     await createUserDocumentFromAuth(user, { displayName });
+                    setCurrentUser(user);
+                    setSignedIn(true);
                     resetFormFields();
                     
                 } catch(error) {
@@ -100,8 +109,7 @@ const Authentication = ({signedUp, setSignedIn}) => {
                     <Button type="submit "text={signedUp ? "Sign in" : "Sign up"}/>
                 </div>
             </form>
-            <Button type="button" text="Sign in with Google" logGoogleUser={logGoogleUser}/>
-            <h4>Only Google Sign-In works right now.</h4>
+            <Button type="button" text="Sign in with Google" signInWithGoogleUser={signInWithGoogle}/>
         </div>
     )
 }
