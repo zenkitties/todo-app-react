@@ -83,7 +83,8 @@ body {
     }
 
     div .todo-header {
-        display: flex;
+        display: flex !important;
+        flex-basis: 100%;
         background-color: $primary-color;
         color: $white;
         height: 70px;
@@ -92,16 +93,17 @@ body {
         -webkit-box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
         -moz-box-shadow: -2px 8px 16px 7px rgba(0,0,0,0.44);
 
-        .sign-in-options, .heading-text {
-            flex-basis: 50%;
+        .sign-in-options, .heading-text, .log-out-option {
+            flex-basis: 49%;
         }
 
-        .sign-in-options {
+        .sign-in-options, .log-out-option {
+            position: relative;
             text-align: right; 
-            padding-top: 5px;
-            padding-right: 20px;
+            top: 5px;
+            right: 20px;
 
-            .sign-in-link, .sign-up-link {
+            .sign-in-link, .sign-up-link, .log-out-link {
                
                 &:hover {
                     cursor: pointer;

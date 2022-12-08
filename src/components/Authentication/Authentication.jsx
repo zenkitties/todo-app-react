@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import {
     signInWithGooglePopup,
     createUserDocumentFromAuth, 
-    createAuthUserWithEmailAndPassword
+    createAuthUserWithEmailAndPassword,
+    signInAuthUserWithEmailAndPassword
 } from '../../utils/firebase/firebase.utils'
 
 import AuthenticationInput from './AuthenticationInput';
@@ -15,7 +16,7 @@ const defaultFormFields = {
     confirmPassword: ''
 }
 
-const Authentication = ({signedUp}) => {
+const Authentication = ({signedUp, setSignedIn}) => {
     const [formFields, setFormFields] = useState(defaultFormFields)
 
     const {displayName, email, password, confirmPassword } = formFields;
@@ -35,34 +36,56 @@ const Authentication = ({signedUp}) => {
         setFormFields({...formFields, [name]: value})
     }
 
-    const handleSubmit =async (e) => {
+    const handleAuthentication =async (e) => {
         e.preventDefault();
 
-       if(confirmPassword !== password ) {
+       if(!signedUp && confirmPassword !== password ) {
             alert('passwords do not match');
             return;
        }
 
-       try {
-            const {user} = await createAuthUserWithEmailAndPassword(email, password);
-            
-            await createUserDocumentFromAuth(user, { displayName });
-            resetFormFields();
-            
-        } catch(error) {
-            if(error.code === 'auth/email-already-in-use') {
-                alert('Cannot create user, email already in use.')
-            } else {
-            console.log('There was an error with registering your user.', error);
+       if(signedUp) {
+            try {
+                const response = await signInAuthUserWithEmailAndPassword(email, password);
+                console.log(response);
+                setSignedIn(true);
+                resetFormFields();
+            } catch(error) {
+                switch(error.code) {
+                    case 'auth/user-not-found':
+                        alert('User account was not found.');
+                        break;
+                    case 'auth/wrong-password':
+                        alert('Incorrect password for email.');
+                        break;
+                    default:
+                        console.log('There was an error with sign in', error);
+                        alert('There was an error with sign in');
+                        break;
+                }
             }
-        }
+        } else {
+            try {
+                    const {user} = await createAuthUserWithEmailAndPassword(email, password);
+                    
+                    await createUserDocumentFromAuth(user, { displayName });
+                    resetFormFields();
+                    
+                } catch(error) {
+                    if(error.code === 'auth/email-already-in-use') {
+                        alert('Cannot create user, email already in use.')
+                    } else {
+                    console.log('There was an error with registering your user.', error);
+                    }
+                }
+            }
     }
 
     return (
         <div className="sign-in">
             <h1>Hello {displayName}</h1>
             <h2>{!signedUp && `let's get you registered.`}</h2>
-            <form className="sign-in-form" onSubmit={handleSubmit}>
+            <form className="sign-in-form" onSubmit={handleAuthentication}>
                 { !signedUp &&
                 <div className="register-container">
                     <AuthenticationInput  handleChange={handleChange} value={displayName} placeholder="Display Name"  name="displayName" type="text" />
@@ -74,10 +97,10 @@ const Authentication = ({signedUp}) => {
                     { !signedUp &&
                     <AuthenticationInput handleChange={handleChange} placeholder="Confirm Password" name="confirmPassword" value={confirmPassword} type="password" />
                     }
-                    <Button type="submit "text={signedUp ? "Sign in" : "Sign Up"} />
+                    <Button type="submit "text={signedUp ? "Sign in" : "Sign up"}/>
                 </div>
             </form>
-            <Button text="Sign in with Google" logGoogleUser={logGoogleUser}/>
+            <Button type="button" text="Sign in with Google" logGoogleUser={logGoogleUser}/>
             <h4>Only Google Sign-In works right now.</h4>
         </div>
     )

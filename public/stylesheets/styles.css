@@ -60,7 +60,8 @@ body div .sign-in button:hover {
   border: 2px solid #0b222f;
 }
 body div .todo-header {
-  display: flex;
+  display: flex !important;
+  flex-basis: 100%;
   background-color: rgb(18, 55, 76);
   color: #fff;
   height: 70px;
@@ -69,19 +70,20 @@ body div .todo-header {
   -webkit-box-shadow: -2px 8px 16px 7px rgba(0, 0, 0, 0.44);
   -moz-box-shadow: -2px 8px 16px 7px rgba(0, 0, 0, 0.44);
 }
-body div .todo-header .sign-in-options, body div .todo-header .heading-text {
-  flex-basis: 50%;
+body div .todo-header .sign-in-options, body div .todo-header .heading-text, body div .todo-header .log-out-option {
+  flex-basis: 49%;
 }
-body div .todo-header .sign-in-options {
+body div .todo-header .sign-in-options, body div .todo-header .log-out-option {
+  position: relative;
   text-align: right;
-  padding-top: 5px;
-  padding-right: 20px;
+  top: 5px;
+  right: 20px;
 }
-body div .todo-header .sign-in-options .sign-in-link:hover, body div .todo-header .sign-in-options .sign-up-link:hover {
+body div .todo-header .sign-in-options .sign-in-link:hover, body div .todo-header .sign-in-options .sign-up-link:hover, body div .todo-header .sign-in-options .log-out-link:hover, body div .todo-header .log-out-option .sign-in-link:hover, body div .todo-header .log-out-option .sign-up-link:hover, body div .todo-header .log-out-option .log-out-link:hover {
   cursor: pointer;
   color: #a6d1ea;
 }
-body div .todo-header .sign-in-options .sign-in-link:active, body div .todo-header .sign-in-options .sign-up-link:active {
+body div .todo-header .sign-in-options .sign-in-link:active, body div .todo-header .sign-in-options .sign-up-link:active, body div .todo-header .sign-in-options .log-out-link:active, body div .todo-header .log-out-option .sign-in-link:active, body div .todo-header .log-out-option .sign-up-link:active, body div .todo-header .log-out-option .log-out-link:active {
   color: #fff;
 }
 body div .todo-header .heading-text {

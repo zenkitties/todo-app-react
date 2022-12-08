@@ -11,9 +11,10 @@ function App() {
     const [signedIn, setSignedIn] = useState(false);
     const [signedUp, setSignedUp] = useState(true);
 
+
     const addTodo =(e) => {
         e.preventDefault();
-        
+
         if (!todoInput) return;
 
         setTodos(prevValue => {
@@ -24,14 +25,14 @@ function App() {
 
   return (
     <div className="App">
-        <Header setSignedUp={setSignedUp} setSignedIn={setSignedIn}/>
-        { !signedIn ?
+        <Header setSignedUp={setSignedUp} setSignedIn={setSignedIn} signedIn={signedIn}/>
+        { signedIn ?
         <div>
             <AddTodo setTodoInput={setTodoInput} addTodo={addTodo} name='add-todo' value={todoInput}/>
             <TodoList todos={todos} setTodos={setTodos}/> 
         </div>
         :
-        <Authentication signedUp={signedUp} />
+        <Authentication signedUp={signedUp} setSignedIn={setSignedIn} />
         }
         <Footer />
     </div>
