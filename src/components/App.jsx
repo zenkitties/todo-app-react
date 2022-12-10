@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react';
 
 import { UserContext } from '../contexts/User';
 
+import { signOutUser } from '../utils/firebase/firebase.utils';
+
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
 import AddTodo from './AddTodo/AddTodo'
@@ -30,7 +32,7 @@ const App = () => {
 
   return (
     <div className="App">
-        <Header setSignedUp={setSignedUp} setSignedIn={setSignedIn} signedIn={signedIn}/>
+        <Header setSignedUp={setSignedUp} setSignedIn={setSignedIn} signedIn={signedIn} signOutUser={signOutUser}/>
         { currentUser ?
         <div>
             <AddTodo setTodoInput={setTodoInput} addTodo={addTodo} name='add-todo' value={todoInput}/>

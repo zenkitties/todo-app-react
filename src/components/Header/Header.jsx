@@ -8,7 +8,7 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 
 const Header = ({setSignedUp, setSignedIn, signedIn}) => {
 
-    const {currentUser, setCurrentUser} = useContext(UserContext);
+    const {currentUser} = useContext(UserContext);
 
     const handleSignIn = () => {
         setSignedUp(true);
@@ -19,10 +19,6 @@ const Header = ({setSignedUp, setSignedIn, signedIn}) => {
         setSignedIn(false);
     }
 
-    const signOutHandler = async () => {
-        await signOutUser();
-        setCurrentUser(null);
-    }
 
     return (
         <div className="todo-header">
@@ -35,7 +31,7 @@ const Header = ({setSignedUp, setSignedIn, signedIn}) => {
             </div>
             :
             <div className="log-out-option">
-                <span className="log-out-link"  onClick={signOutHandler}>Sign Out</span>
+                <span className="log-out-link"  onClick={signOutUser}>Sign Out</span>
             </div>
             }
         </div>

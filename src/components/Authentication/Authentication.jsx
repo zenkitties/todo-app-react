@@ -9,8 +9,6 @@ import {
 import AuthenticationInput from './AuthenticationInput';
 import Button from '../Button/Button'
 
-import { UserContext } from '../../contexts/User'
-
 const defaultFormFields = {
     displayName: '',
     email: '',
@@ -23,16 +21,13 @@ const Authentication = ({signedUp, setSignedIn}) => {
 
     const {displayName, email, password, confirmPassword } = formFields;
 
-    const { setCurrentUser } = useContext(UserContext); 
-
     const resetFormFields =() => {
         setFormFields(defaultFormFields);
     }
 
     const signInWithGoogle = async () => {
-        const  { user } = await signInWithGooglePopup();
-        const userDocRef = await createUserDocumentFromAuth(user);
-        setCurrentUser(user);
+        await signInWithGooglePopup();
+        
         setSignedIn(true);
         resetFormFields();
     }
@@ -54,7 +49,6 @@ const Authentication = ({signedUp, setSignedIn}) => {
        if(signedUp) {
             try {
                 const { user } = await signInAuthUserWithEmailAndPassword(email, password);
-                setCurrentUser(user)
                 setSignedIn(true);
                 resetFormFields();
             } catch(error) {
@@ -76,7 +70,6 @@ const Authentication = ({signedUp, setSignedIn}) => {
                     const {user} = await createAuthUserWithEmailAndPassword(email, password);
                     
                     await createUserDocumentFromAuth(user, { displayName });
-                    setCurrentUser(user);
                     setSignedIn(true);
                     resetFormFields();
                     
