@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     font-family: $primary-font;
     color: $white;
@@ -147,7 +147,7 @@ body {
             border-bottom: 2px solid darken($primary-color, 15%);
         }
 
-       .add-todo-input {
+       .add-todo-input, &autofill {
             display: flex;
             align-self: center;
             background-color: $primary-color;

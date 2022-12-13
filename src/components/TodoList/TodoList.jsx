@@ -1,39 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Todo from './Todo'
 import uuid from 'react-uuid';
 
-const TodoList = ({todos, setTodos, editData}) => {
+import { TodosContext } from '../../contexts/Todos';
 
-    const deleteTodo = (id) => {
-        setTodos(prevTodos => {
-            return prevTodos.filter((item, index) => {
-                return index !== id;
-            })
-        })
-    }
+const TodoList = () => {
+    const { todos } = useContext(TodosContext);
 
-
-    const saveTodo = (editData) => {
-        const {setInEdit, editInput, props} = editData   
-        const {name, id} = props
-
-
-        setTodos(prevTodos => 
-            prevTodos.filter((todo, index) =>{
-                if (index === id) {
-                    todo.name = editInput
-                }
-            return prevTodos
-        }));
-        setInEdit(false);
-    }
-
-
-    const getTodos = (todo,  index) => {
-        const {name} = todo;
+    const getTodos = (todo, index) => {
+        const {name, isDone} = todo;
 
         return (
-            <Todo key={uuid()} id={index} name={name}  deleteTodo={deleteTodo} setTodos={setTodos} todos={todos} saveTodo={saveTodo}/>
+            <Todo style={{textDecoration: isDone ?  'line-through' : null}} key={uuid()} id={index} name={name}/>
         )
     }
 

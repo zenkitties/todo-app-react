@@ -1,43 +1,33 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import EditTodo from '../EditTodo/EditTodo';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const Todo = ({deleteTodo, todos, setTodos, saveTodo, ...props}) => {
-    const [done, setDone] = useState(false);
-    const [inEdit, setInEdit] = useState(false);
+import { TodosContext } from '../../contexts/Todos';
+
+const Todo = ({toggleDone, ...props}) => {
     const [editInput, setEditInput] = useState(props.name)
-
-    const editData = {setInEdit, editInput, props}
-
-
-    const isChecked = () => {
-        setDone(done ? false : true)
-    }
+    const {editTodo, deleteTodo, setStatus, todos, saveTodo, handleCancel} = useContext(TodosContext);
+    const isInEdit= todos[props.id].inEdit;
 
     const handleChange =(e) => {
         setEditInput(e.target.value);
     }
 
-    const editTodo = () => {
-        setInEdit(true);
-    }
-
-    const handleCancel = (e) => {
-        setInEdit(false);
-    }
 
     return (
         <div className='todo-item-container' >
-            {!inEdit &&
+            {!isInEdit ?
             <div className='todo-container'>
-                <li style={{textDecoration: done ?  'line-through' : null}} id={props.id}  className='todo-item' name={props.name} onClick={isChecked}>{props.name}</li>
+                <li style={props.style} id={props.id}  className='todo-item' value={props.name} name={props.name} onClick={() => setStatus(props.id)}>{props.name}</li>
                 <div className='todo-actions'>
-                    <EditIcon className="action-button" fontSize="large" onClick={editTodo} />
+                    <EditIcon className="action-button" fontSize="large" onClick={() => editTodo(props.id)} />
                     <DeleteIcon className="action-button" onClick={() =>deleteTodo(props.id)} fontSize="large" />
                 </div>
-            </div>}
-            {inEdit && <EditTodo name="editTodo" value={editInput} handleCancel={handleCancel} handleChange={handleChange} editInput={editInput} saveTodo={() => saveTodo(editData)}  />}
+            </div>
+            :
+            <EditTodo name="editTodo" value={editInput} handleChange={handleChange} saveTodo={() => saveTodo(props.id, editInput)} handleCancel={() => handleCancel(props.id)} />
+            }
         </div>
     )
 }

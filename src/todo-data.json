@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "name": "Making Bacon Pancakes",
+        "isDone": false,
+        "inEdit": false
+    },
+    {
+        "id": 1,
+        "name": "Putting up jolly X-Mas Lights",
+        "isDone": false,
+        "inEdit": false
+    },
+    {
+        "id": 2,
+        "name": "Know Kung Fu",
+        "isDone": false,
+        "inEdit": false
+    },
+    {
+        "id": 3,
+        "name": "Karate Chop the kids",
+        "isDone": false,
+        "inEdit": false
+    }
+]
